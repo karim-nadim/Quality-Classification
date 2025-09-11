@@ -60,7 +60,7 @@ class ModelEvaluation:
             scores = {"rmse": rmse, "mae": mae, "r2": r2}
             save_json(path=Path(self.config.model_evaluation.metric_file_name), data=scores)
 
-            mlflow.log_params(self.params.DecisionTree)
+            mlflow.log_params(self.params.ElasticNet)
 
             mlflow.log_metric("rmse", rmse)
             mlflow.log_metric("r2", r2)
@@ -74,7 +74,7 @@ class ModelEvaluation:
                 # There are other ways to use the Model Registry, which depends on the use case,
                 # please refer to the doc for more information:
                 # https://mlflow.org/docs/latest/model-registry.html#api-workflow
-                mlflow.sklearn.log_model(model, "model", registered_model_name="DecisionTreeModel")
+                mlflow.sklearn.log_model(model, "model", registered_model_name="ElasticNetModel")
             else:
                 mlflow.sklearn.log_model(model, "model")
 

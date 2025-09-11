@@ -55,26 +55,36 @@ open up you local host and port
 [Documentation](https://mlflow.org/docs/latest/index.html)
 
 
-##### cmd
-- mlflow ui
+#### cmd
+mlflow ui
 
 ### dagshub
 [dagshub](https://dagshub.com/)
 
-MLFLOW_TRACKING_URI=https://dagshub.com/entbappy/End-to-end-Machine-Learning-Project-with-MLflow.mlflow \
-MLFLOW_TRACKING_USERNAME=entbappy \
-MLFLOW_TRACKING_PASSWORD=6824692c47a369aa6f9eac5b10041d5c8edbcef0 \
-python script.py
+### - Connect your Github repository to Dagshub
+### - Get your MLFLOW_TRACKING_PASSWORD by creating a new Token on Dagshub
 
-Run this to export as env variables:
+	MLFLOW_TRACKING_URI=https://dagshub.com/karim-nadim/Quality-Classification.mlflow
+
+	MLFLOW_TRACKING_USERNAME=karim-nadim 
+
+	MLFLOW_TRACKING_PASSWORD=f3605d8047c21addb833a602a7a58d1bae7bccf0
+
+	
+
+
+
+### Run this in your terminal one by one to export as env variables:
 
 ```bash
 
-export MLFLOW_TRACKING_URI=https://dagshub.com/entbappy/End-to-end-Machine-Learning-Project-with-MLflow.mlflow
+export MLFLOW_TRACKING_URI=https://dagshub.com/karim-nadim/Quality-Classification.mlflow
 
-export MLFLOW_TRACKING_USERNAME=entbappy 
+export MLFLOW_TRACKING_USERNAME=karim-nadim 
 
-export MLFLOW_TRACKING_PASSWORD=6824692c47a369aa6f9eac5b10041d5c8edbcef0
+export MLFLOW_TRACKING_PASSWORD=f3605d8047c21addb833a602a7a58d1bae7bccf0
+
+
 
 ```
 

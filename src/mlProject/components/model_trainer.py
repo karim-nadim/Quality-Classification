@@ -4,6 +4,7 @@ import pandas as pd
 import os
 from mlProject import logger
 from sklearn.linear_model import ElasticNet
+from sklearn.tree import DecisionTreeRegressor
 import joblib
 
 class ModelTrainer:
@@ -32,11 +33,16 @@ class ModelTrainer:
         test_y = test_data[[self.schema.TARGET_COLUMN.name]]
 
 
-        lr = ElasticNet(alpha=self.params.ElasticNet.alpha, 
-                        l1_ratio=self.params.ElasticNet.l1_ratio, 
-                        random_state=42)
+        #lr = ElasticNet(alpha=self.params.ElasticNet.alpha, 
+        #                l1_ratio=self.params.ElasticNet.l1_ratio, 
+        #                random_state=42)
 
-        lr.fit(train_x, train_y)
+        dt = DecisionTreeRegressor(criterion = self.params.DecisionTree.criterion,
+                                    min_samples_leaf = self.params.DecisionTree.min_samples_leaf,
+                                    min_samples_split = self.params.DecisionTree.min_samples_split,
+                                    random_state=42)
 
-        joblib.dump(lr, os.path.join(self.config.model_trainer.root_dir, self.config.model_trainer.model_name))
+        dt.fit(train_x, train_y)
+
+        joblib.dump(dt, os.path.join(self.config.model_trainer.root_dir, self.config.model_trainer.model_name))
 

@@ -11,17 +11,23 @@
 6. Update the main.py
 7. Update the app.py
 
+<br>
+
+To create the landing/home page we need to fill the code in templates/index.html. You can visit the website "bootstrap", choose a template from the avaialble landing pages templates and download the code.
+
+<br>
 
 
-# How to run?
-### STEPS:
+## How to run?
+<br>
 
-Clone the repository
+### STEP 01- Clone the repository
+
 
 ```bash
 https://github.com/karim-nadim/Quality-Classification
 ```
-### STEP 01- Create a conda environment after opening the repository
+### STEP 02- Create a conda environment after opening the repository
 
 ```bash
 conda create -n mlproj python=3.8 -y
@@ -32,7 +38,7 @@ conda activate mlproj
 ```
 
 
-### STEP 02- install the requirements
+### STEP 03- install the requirements
 ```bash
 pip install -r requirements.txt
 ```
@@ -48,7 +54,7 @@ Now,
 open up you local host and port
 ```
 
-
+<br>
 
 ## MLflow
 
@@ -61,32 +67,42 @@ mlflow ui
 ### dagshub
 [dagshub](https://dagshub.com/)
 
-### - Connect your Github repository to Dagshub
-### - Get your MLFLOW_TRACKING_PASSWORD by creating a new Token on Dagshub
+
+
+<br>
+
+### MLFlow Variables:
 
 	MLFLOW_TRACKING_URI=https://dagshub.com/karim-nadim/Quality-Classification.mlflow
 
 	MLFLOW_TRACKING_USERNAME=karim-nadim 
 
-	MLFLOW_TRACKING_PASSWORD=f3605d8047c21addb833a602a7a58d1bae7bccf0
-
 	
-
-
+<br>
 
 ### Run this in your terminal one by one to export as env variables:
 
 ```bash
-
 export MLFLOW_TRACKING_URI=https://dagshub.com/karim-nadim/Quality-Classification.mlflow
 
 export MLFLOW_TRACKING_USERNAME=karim-nadim 
 
-export MLFLOW_TRACKING_PASSWORD=f3605d8047c21addb833a602a7a58d1bae7bccf0
-
-
-
 ```
+<br>
+
+### Run this in your code:
+```python
+import dagshub
+dagshub.init(repo_owner='karim-nadim', repo_name='Quality-Classification', mlflow=True)
+
+import mlflow
+with mlflow.start_run():
+  mlflow.log_param('parameter name', 'value')
+  mlflow.log_metric('metric name', 1)
+```
+
+
+
 
 
 
